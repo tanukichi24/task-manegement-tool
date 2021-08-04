@@ -1,0 +1,115 @@
+.task-item {
+  display: flex;
+  width: 88.75%;
+  padding: 13.5px 0;
+  margin: 0 auto;
+  overflow: auto;
+  border-bottom: dashed 1px;
+}
+
+.task-text {
+  align-items: center;
+  width: 45%;
+  padding-right: 5px;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: normal;
+  word-wrap: break-word;
+}
+
+.task-deadline {
+  align-items: center;
+  width: 25%;
+  margin: auto;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.task-progress {
+  align-items: center;
+  width: 10%;
+  margin: auto;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.task-progress-bar {
+  align-items: center;
+  width: 10%;
+  margin: auto;
+}
+
+progress {
+  width: 100%;
+  height: 43px;
+  border: 1px solid;
+  -webkit-appearance: none;
+}
+
+::-webkit-progress-bar {
+  background-color: white;
+}
+
+::-webkit-progress-value {
+  background-color: #666;
+}
+
+.task-checkbox {
+  align-items: center;
+  width: 10%;
+  margin: auto;
+}
+
+input[type='checkbox'] {
+  display: none;
+
+  /* デフォルトのチェックボックスを非表示にする */
+}
+
+input#check1[type='checkbox'] + label {
+  position: relative;
+  padding-left: 40%;
+
+  /* チェックボックス分の隙間を作る */
+}
+
+input#check1[type='checkbox'] + label::before {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  display: block;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  content: '';
+  border: 2px solid;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+input#check1[type=checkbox]:checked + label::after {
+  position: absolute;
+
+  /* ここから下は位置を調整する */
+
+  top: 30%;
+  left: calc(100% + 18px);
+  box-sizing: border-box;
+  display: block;
+  width: 30px;
+  height: 18px;
+
+  /* チェックの✓をつくる */
+
+  content: '';
+  border-bottom: 5px solid #93e552;
+  border-left: 5px solid #93e552;
+
+  /* 箱を斜めに傾けてチェック表示にする */
+
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg) translateY(-50%);
+}

@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import 'bulma/css/bulma.css';
 import classNames from 'classnames';
+import './taskItem.css';
 
 type Props = {
   item: {
@@ -47,26 +48,43 @@ const TaskItem: FC<Props> = ({ item, onCheck }) => {
     handleModal();
   };
 
+  /*
+  const changeDeadline = () => {
+    let newDeadline = taskItem.deadline;
+    newDeadline = newDeadline.slice(5, 9);
+
+    return newDeadline;
+  };
+  */
+
   return (
     <>
-      <input type="checkbox" checked={taskItem.done} onChange={handleChange} />
       <span
         className={classNames({
           'has-text-grey-light': taskItem.done,
         })}
       >
-        <div className="columns">
-          <div className="column is-one-third">{taskItem.text}</div>
-          <div className="column">{taskItem.deadline}</div>
-          <div className="column">
+        <div className="task-item">
+          <div className="task-text">{taskItem.text}</div>
+          <div className="task-deadline">{taskItem.deadline}</div>
+          <div className="task-progress">
             <div onClick={handleModal} role="presentation">
               {taskItem.progress}%
             </div>
           </div>
-          <div className="column">
+          <div className="task-progress-bar">
             <progress max="100" value={taskItem.progress}>
               {taskItem.progress}
             </progress>
+          </div>
+          <div className="task-checkbox">
+            <input
+              id="check1"
+              type="checkbox"
+              checked={taskItem.done}
+              onChange={handleChange}
+            />
+            <label htmlFor="check1">{}</label>
           </div>
         </div>
       </span>
@@ -84,12 +102,12 @@ const TaskItem: FC<Props> = ({ item, onCheck }) => {
           </header>
           <section className="modal-card-body">
             <div className="field">
-              <div className="label">
+              <div className="label is-size-4">
                 <p>進捗を入力してください</p>
                 <p>(半角数字で入力してください)</p>
               </div>
               <input
-                className="input"
+                className="input is-size-4"
                 type="number"
                 value={newProgress}
                 onChange={handleProgress}
@@ -97,7 +115,7 @@ const TaskItem: FC<Props> = ({ item, onCheck }) => {
             </div>
             <button
               type="button"
-              className="button is-success"
+              className="button is-success is-size-4"
               onClick={changeProgress}
             >
               進捗を更新

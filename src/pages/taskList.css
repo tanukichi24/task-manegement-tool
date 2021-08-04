@@ -1,0 +1,89 @@
+.header {
+  height: 89px;
+  padding-top: 14px;
+  padding-left: 19px;
+  margin-bottom: 31px;
+  background-color: #93e552;
+}
+
+.logo {
+  top: 14px;
+  left: 19px;
+  width: 293px;
+  height: 61px;
+  background-color: white;
+}
+
+.logo img {
+  margin-top: 4px;
+  margin-right: 5px;
+  margin-left: 9px;
+}
+
+.logo p {
+  display: flex;
+  align-items: center;
+  float: right;
+  width: 216px;
+  height: 61px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 28px;
+  text-align: center;
+}
+
+.task-label {
+  width: 88.75%;
+  height: 49px;
+  margin: 0 auto 17.5px;
+  border-bottom: solid 1px;
+}
+
+.task-list-label {
+  display: flex;
+  align-items: center;
+  float: left;
+  width: 45%;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 42px;
+}
+
+.deadline-label {
+  display: flex;
+  align-items: center;
+  float: left;
+  width: 25%;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 42px;
+}
+
+.progress-label {
+  display: flex;
+  align-items: center;
+  float: left;
+  width: 30%;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 42px;
+}
+
+.add-task-button {
+  padding-top: 13.5px;
+  padding-left: 5.625%;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+}
+
+.add-task-label {
+  float: right;
+  margin-left: 30px;
+  font-size: 36px;
+  line-height: 68px;
+}

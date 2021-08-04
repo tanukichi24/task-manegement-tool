@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import 'bulma/css/bulma.css';
 import TaskItem from '../components/taskItem';
 import Input from '../components/input';
+import './taskList.css';
 
 const getKey: () => string = () => Math.random().toString(32).substring(2);
 
@@ -10,21 +11,21 @@ const TaskList: FC = () => {
     {
       key: getKey(),
       text: 'Learn JavaScript',
-      deadline: '7/22',
+      deadline: '2021-08-03',
       progress: 40,
       done: false,
     },
     {
       key: getKey(),
       text: 'Learn React',
-      deadline: '7/23',
+      deadline: '2021-08-04',
       progress: 20,
       done: false,
     },
     {
       key: getKey(),
       text: 'Get some good sleep',
-      deadline: '7/24',
+      deadline: '2021-08-05',
       progress: 80,
       done: false,
     },
@@ -79,20 +80,35 @@ const TaskList: FC = () => {
 
   return (
     <div className="panel">
-      <div className="panel-heading">⚛️ Task Manager</div>
+      <div className="header">
+        <div className="logo">
+          <img
+            src="./icon.png"
+            alt="task-management-tool-icon"
+            width="53"
+            height="53"
+          />
+          <p>タスク管理ツール</p>
+        </div>
+      </div>
       <div>
-        <div className="columns">
-          <div className="label column is-one-third">タスクリスト</div>
-          <div className="label column">期限</div>
-          <div className="label column">進捗</div>
-          <div className="label column">{}</div>
+        <div className="task-label">
+          <div className="task-list-label">タスクリスト</div>
+          <div className="deadline-label">期限</div>
+          <div className="progress-label">進捗</div>
         </div>
         {items.map((item) => (
           <TaskItem key={item.key} item={item} onCheck={handleCheck} />
         ))}
       </div>
-      <button type="button" onClick={handleModal}>
-        add Task
+      <button className="add-task-button" type="button" onClick={handleModal}>
+        <img
+          src="./add_task.png"
+          alt="add-task-button"
+          width="68"
+          height="68"
+        />
+        <p className="add-task-label">タスクを追加する</p>
       </button>
       <div className={`modal ${active()}`}>
         <div className="modal-background" />
